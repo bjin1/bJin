@@ -1,8 +1,8 @@
 {
-  "name": "ael-ohm",
+  "name": "bjin",
   "version": "1.0.0",
-  "description": "Compiler for Ael using Ohm",
-  "main": "ael.js",
+  "description": "Compiler for bjin",
+  "main": "bjin.js",
   "type": "module",
   "scripts": {
     "test": "c8 node_modules/.bin/mocha"
