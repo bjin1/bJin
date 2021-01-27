@@ -1,85 +1,114 @@
 ![Logo](https://raw.githubusercontent.com/bjin1/bJin/main/docs/bjin.png)
 
-# Ael
+# bJin
 
-This is a compiler for the language **Ael** written with the help of the amazing [Ohm language library](https://ohmlang.github.io/).
+bJin is a custom language, which learn a lot from `python` and try to build a `javascript` logic but with a simple grammer coding language.
 
-Ael stands for (A)rithmetic (E)xpression (L)anguage. It’s the language of arithmetic expressions with `+`, `-`, `*`, `/`, `abs`, `sqrt`, and parentheses, together with declarations, assignments, and print statements. The language wants to be _just simple enough_ for the compiler writer to (1) experience the difference between statements and expressions, (2) have something to do during semantic analysis, and (3) provide a handful of optimization opportunities.
+## List of Features
 
-In the spirit of an introductory tutorial, this compiler features multiple backends: it can generate JavaScript, C, and LLVM. Why not a real assembly language? It’s fair to say LLVM these days takes things plenty far enough along for an introductory example. One can learn about register allocation and hardware-specific optimizations elsewhere.
+- func declare: `def identifier (identifier, ...) ... fed`
+- if statement: `if statement : statement; statement; ...  (ei statement : statement ...) (el statement ... le) fi`
+- use `write` to print something, and `get` to wait for input.
+- use `out` as `return`
+- statement end with semicolon.
 
-## Sample Program
+## Example Programs
 
-Here is a sample program in the language:
+Here are some examples, Goof3 on the left, JavaScript on the right.
+
+### "Hello World" Example
+
+- Declare print statements with "poof"
+
+<table>
+  <tr>
+  <th>Goof3</th>
+  <th>JavaScript</th>
+  </tr>
+
+  <tr>
+  <td>
 
 ```
-let x = 3 * 9
-let y = 793 + (2 / abs 80 + x) * x
-print 8.55 * x - (-y)
-x = y
-print y / sqrt 3
+write("hello world!");
 ```
 
-## Grammar
+  </td>
 
-Here is the grammar in Ohm notation:
+  <td>
+
+```javascript
+console.log('hello world!')
+```
+
+  </td>
+
+  </tr>
+</table>
+
+### Function Example
+
+
+<table>
+  <tr>
+  <th>Goof3</th>
+  <th>JavaScript</th>
+  </tr>
+
+  <tr>
+  <td>
 
 ```
-Ael {
-  Program   = Statement+
-  Statement = let id "=" Exp                  --variable
-            | id "=" Exp                      --assign
-            | print Exp                       --print
-  Exp       = Exp ("+" | "-") Term            --binary
-            | Term
-  Term      = Term ("*"| "/") Factor          --binary
-            | Factor
-  Factor    = id
-            | num
-            | "(" Exp ")"                     --parens
-            | ("-" | abs | sqrt) Factor       --unary
-  num       = digit+ ("." digit+)?
-  let       = "let" ~alnum
-  print     = "print" ~alnum
-  abs       = "abs" ~alnum
-  sqrt      = "sqrt" ~alnum
-  keyword   = let | print | abs | sqrt
-  id        = ~keyword letter alnum*
-  space    += "//" (~"\n" any)* ("\n" | end)  --comment
+def myFunc(x, y, z) 
+  out x + y;
+fed
+```
+
+  </td>
+
+  <td>
+
+```javascript
+function myFunc(x, y, z) {
+  return x + y;
 }
 ```
 
-## Running
+  </td>
 
-The compiler is written in modern JavaScript.
+  </tr>
+</table>
 
-Because this application was written as a tutorial, the compiler exposes what each phase does, as well as providing multiple translations:
+### Declaration Example
 
-```
-src/aelc.js <filename> <outputType>
-```
+- use `give` as a declaration sign, the type will be automatically identified
 
-The output type argument tells the compiler what to print to standard output:
+<table>
+  <tr>
+  <th>Goof3</th>
+  <th>JavaScript</th>
+  </tr>
 
-- `ast` &nbsp;&nbsp; the abstract syntax tree
-- `analyzed` &nbsp;&nbsp; the semantically analyzed representation
-- `optimized` &nbsp;&nbsp; the optimized semantically analyzed representation
-- `js` &nbsp;&nbsp; the translation to JavaScript
-- `c` &nbsp;&nbsp; the translation to C
-- `llvm` &nbsp;&nbsp; the translation to LLVM
-
-To keep things simple, the compiler will halt on the first error it finds.
-
-## Contributing
-
-I’m happy to take PRs. As usual, be nice when filing issues and contributing. Do remember the idea is to keep the language tiny; if you’d like to extend the language, you’re probably better forking into a new project. However, I would _love_ to see any improvements you might have for the implementation or the pedagogy.
-
-To contribute, make sure you have a modern version of Node.js, since the code has some ES2020 features. Clone the repo and run `npm install` as usual.
-
-You can run tests with:
+  <tr>
+  <td>
 
 ```
-npm test
+give money 20.25;
+give age 21;
+give kevin true;
+give simmons "Lumberjack"
 ```
 
-This project is so small that `npm test` is configured to always run a coverage report. I used [mocha](https://mochajs.org/) for the test runner and [c8](https://github.com/bcoe/c8) for the coverage.
+  </td>
+
+  <td>
+
+```javascript
+var money = 20.25;
+var age = 21;
+var kevin = true;
+var simmons = "Lumberjack";
+```
+  </td>
+  </tr>
+</table>
