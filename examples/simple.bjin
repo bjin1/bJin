@@ -1,4 +1,13 @@
-let dozen = 1 * (0 + sqrt 101.3)
-let y = dozen - 0    // TADA 🥑
-dozen = 0 / y
-print abs dozen //
+def a(a,y,x) 
+	give a 1;
+    if a : 
+		give b 12;
+    ei a + b:
+    	get(b);
+    ie
+    el
+        write(123);
+    le
+    fi
+fed
+write("hello");

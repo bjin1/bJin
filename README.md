@@ -7,7 +7,7 @@ bJin is a custom language, which learn a lot from `python` and try to build a `j
 ## List of Features
 
 - func declare: `def identifier (identifier, ...) ... fed`
-- if statement: `if statement : statement; statement; ...  (ei statement : statement ...) (el statement ... le) fi`
+- if statement: `if statement : statement; statement; ...  ei statement : statement ... ie  el statement ... le fi`
 - use `write` to print something, and `get` to wait for input.
 - use `out` as `return`
 - statement end with semicolon.

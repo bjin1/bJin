@@ -2,10 +2,19 @@ import assert from "assert"
 import util from "util"
 import parse from "../src/parser.js"
 
-const source = `let dozen = 1 * (0 + sqrt 101.3)
-  let y = dozen - 0    // TADA 🥑
-  dozen = 0 / y
-  print abs dozen //`
+const source = `def a(a,y,x) 
+give a 1;
+  if a : 
+  give b 12;
+  ei a + b:
+    get(b);
+  ie
+  el
+      write(123);
+  le
+  fi
+fed
+write("hello");`
 
 const expectedAst = `   1 | program: Program
    2 |   statements[0]: Variable name='dozen'
