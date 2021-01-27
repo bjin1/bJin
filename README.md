@@ -1,4 +1,4 @@
-![Logo](https://raw.githubusercontent.com/bjin1/ael/main/docs/bjin.png)
+![Logo](https://raw.githubusercontent.com/bjin1/bJin/main/docs/bjin.png)
 
 # Ael
 
