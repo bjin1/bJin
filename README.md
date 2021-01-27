@@ -1,3 +1,7 @@
+# Backup
+
+This is a back up for AEL code, bJin will be modified based on AEL.
+
 ![Logo](https://raw.githubusercontent.com/bjin1/bJin/main/docs/bjin.png)
 
 # bJin
