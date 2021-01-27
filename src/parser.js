@@ -6,8 +6,10 @@
 import ohm from "ohm-js"
 
 const aelGrammar = ohm.grammar(String.raw`Ael {
-  Program   = FuncDec+ Expression ";"?
- 	
+  Program   = Statement+
+  
+  Statement = FuncDec | Expression
+  
   FuncDec   = def id "(" (id ("," id)*)? ")" (Expression (";" Expression)* ";"?)? fed
   
   Expression = FuncCall

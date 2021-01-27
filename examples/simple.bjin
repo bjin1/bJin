@@ -10,4 +10,4 @@ def a(a,y,x)
     le
     fi
 fed
-write("hello");
+write("hello")
