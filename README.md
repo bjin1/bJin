@@ -1,7 +1,7 @@
 ![Logo](https://raw.githubusercontent.com/bjin1/bJin/main/docs/bjin.png)
 
 # bJin-lang
-[`bJin`](https://raw.githubusercontent.com/bjin1/bJin/main/docs/bjin.png) is a fast, powerful, flexible and easy to use open source programming language based MIT LISCENCE
+[`bJin`](https://bjin1.github.io/bJin/) is a fast, powerful, flexible and easy to use open source programming language based MIT LISCENCE
 
 
 It has efficient high-level data structures and a simple but effective approach to function-oriented programming. bJin’s elegant syntax is interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.
