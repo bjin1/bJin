@@ -1,0 +1,31 @@
+// int
+let a = 1;
+print(a)
+
+// float
+let b = 3.14
+print(b)
+
+// str
+let c = "abc11"
+print(c)
+
+// bool
+let d = false
+print(d)
+
+// list
+let lint = [1,2,3,5];
+print(lint)
+
+let lstr = ["121","2bad","ddaa"];
+print(ll)
+
+
+// Type check error function type mismatch, can not assign a bool to int
+func f(x: int) {}
+f(false);
+
+// Type check error variable type mismatch, can not assign a int to str
+let a = "abc11";
+a = 1;

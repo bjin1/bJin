@@ -1,38 +1,35 @@
 import assert from "assert"
-import util from "util"
 import parse from "../src/parser.js"
+import * as ast from "../src/ast.js"
 
-const source = `def a(a,y,x) 
-give a 1;
-  if a : 
-  give b 12;
-  ei a + b:
-    get(b);
-  ie
-  el
-      write(123);
-  le
-  fi
-fed
-write("hello")`
+// TODO: This test case needs a lot more work
+const source = `
+  let x = 1;
+  const y = "hello";
+  return [1.0, 2.0];
+  return x.y;
+  func f(x: int): [bool] {
+    if (false) {break;}
+  }
+`
 
-const expectedAst = `true`
-
-const errorFixture = [
-  ["a non-operator", "print 7 * ((2 _ 3)", /Line 1, col 15:/],
-  ["an expression starting with a )", "print )", /Line 1, col 7:/],
-  ["a statement starting with a )", "print 5\n) * 5", /Line 2, col 1:/],
-]
+const expectedAST = new ast.Program([
+  new ast.VariableDeclaration("x", false, 1n),
+  new ast.VariableDeclaration("y", true, "hello"),
+  new ast.ReturnStatement(new ast.ListExpression([1, 2])),
+  new ast.ReturnStatement(
+    new ast.MemberExpression(new ast.IdentifierExpression("x"), "y")
+  ),
+  new ast.FunctionDeclaration(
+    "f",
+    [new ast.Parameter("x", new ast.TypeId("int"))],
+    new ast.ListType(new ast.TypeId("bool")),
+    [new ast.ShortIfStatement(false, [new ast.BreakStatement()])]
+  ),
+])
 
 describe("The parser", () => {
-  it("can parse all the nodes", done => {
-    assert.deepStrictEqual(util.format(parse(source)), expectedAst)
-    done()
+  it("produces a correct AST", () => {
+    assert.deepStrictEqual(parse(source), expectedAST)
   })
-  for (const [scenario, source, errorMessagePattern] of errorFixture) {
-    it(`throws on ${scenario}`, done => {
-      assert.throws(() => parse(source), errorMessagePattern)
-      done()
-    })
-  }
 })

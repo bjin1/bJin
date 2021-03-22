@@ -1,18 +1,42 @@
 {
-  "name": "bjin",
+  "name": "bJin-lang",
   "version": "1.0.0",
-  "description": "Compiler for bjin",
-  "main": "bjin.js",
+  "description": "",
   "type": "module",
-  "scripts": {
-    "test": "c8 node_modules/.bin/mocha"
+  "main": "src/bJin.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
   },
-  "license": "MIT",
+  "scripts": {
+    "lint": "node_modules/.bin/eslint src",
+    "test": "c8 ./node_modules/.bin/mocha",
+    "bjin": "node src/bJin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rtoal/carlos-lang.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rtoal/carlos-lang/issues"
+  },
+  "engines": { 
+    "node": ">=13.2" 
+  },
+  "homepage": "https://github.com/rtoal/carlos-lang#readme",
   "dependencies": {
-    "ohm-js": "^15.3.0"
+    "ohm-js": "^15.4.1"
   },
   "devDependencies": {
-    "c8": "^7.4.0",
-    "mocha": "^8.2.1"
+    "babel-eslint": "^10.1.0",
+    "c8": "^7.6.0",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "mocha": "^8.3.1",
+    "prettier": "^2.2.1"
   }
 }
