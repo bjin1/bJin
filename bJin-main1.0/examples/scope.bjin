@@ -1,0 +1,10 @@
+let a = 1024;
+func f() {
+  const b = true;
+}
+func ff(): int {
+  let b = 5;
+  let a = 3;
+  return a + b;
+}
+print(a + a);

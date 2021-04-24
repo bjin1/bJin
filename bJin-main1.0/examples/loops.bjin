@@ -1,0 +1,9 @@
+for i in [2,3,5] {
+    print(1);
+}
+
+let x = 1;
+while x <= 10 {
+    x++;
+    print(x);
+}
